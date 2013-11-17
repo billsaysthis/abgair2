@@ -15,6 +15,8 @@
 /vendor/bundle/
 /vendor/ruby/
 
+.ruby-version
+
 # minimal Rails specific artifacts
 db/*.sqlite3
 /log/*
@@ -73,3 +75,6 @@ pickle-email-*.html
 
 # vim artifacts
 **.swp
+
+# Ignore application configuration
+/config/application.yml
