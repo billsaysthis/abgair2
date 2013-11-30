@@ -9,7 +9,14 @@ require 'rspec/autorun'
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
+module JsonApiHelpers
+  def json_response
+    @json_response ||= JSON.parse(response.body)
+  end
+end
+
 RSpec.configure do |config|
+  config.include JsonApiHelpers, type: :controller
   config.include(EmailSpec::Helpers)
   config.include(EmailSpec::Matchers)
   # ## Mock Framework

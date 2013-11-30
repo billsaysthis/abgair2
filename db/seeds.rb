@@ -11,7 +11,7 @@ YAML.load(ENV['ROLES']).each do |role|
   puts 'role: ' << role
 end
 
-puts'ORGANIZATIONS'
+puts 'ORGANIZATIONS'
 org = Organization.find_or_create_by_name name: 'Org 1', description: 'Sample org', active: true
 puts 'organization: ' << org.name
 
@@ -22,8 +22,12 @@ puts 'user: ' << user.name
 user.confirm!
 user.add_role :sys_admin
 
-puts 'MEMBERSHIPS'
+puts 'MEMBERSHIP TYPES'
 membership = org.membership_types.create name: 'Regular'
+memType1 = org.membership_types.find_or_create_by_name name: 'Senior'
+memType2 = org.membership_types.find_or_create_by_name name: 'Student'
+
+puts 'MEMBERSHIPS'
 
 puts 'Org1 OrgAdmin User'
 user2 = User.find_or_create_by_email :name => 'Org1 Admin', :email => 'org1admin@example.com', :password => 'changeme', :password_confirmation => 'changeme'
