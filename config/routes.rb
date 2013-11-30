@@ -5,7 +5,7 @@ Abgair2::Application.routes.draw do
     resources :organizations do
       resources :users
       resources :memberships
-      resources :membership_type
+      resources :membership_types
       resources :events
       resources :teams
     end

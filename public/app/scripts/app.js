@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('publicApp', [
+angular.module('abgair', [
+  'abgair.login',
   'ngCookies',
   'ngResource',
   'ngSanitize',

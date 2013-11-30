@@ -34,4 +34,17 @@ user2 = User.find_or_create_by_email :name => 'Org1 Admin', :email => 'org1admin
 user.confirm!
 user2.memberships.create! organization_id: org.id, expires_at: (Date.today + 1.year), membership_type: membership
 puts 'user2: ' << user2.name
-user2.add_role :org_admin, Organization.first
+user2.add_role :org_admin
+
+puts 'Org1 Regular Users'
+user3 = User.find_or_create_by_email :name => 'Org1 Reg1', :email => 'reg1@example.com', :password => 'changeme', :password_confirmation => 'changeme'
+user3.confirm!
+user3.memberships.create! organization_id: org.id, expires_at: (Date.today + 1.year), membership_type: membership
+puts 'user3: ' << user3.name
+user3.add_role :regular
+
+user4 = User.find_or_create_by_email :name => 'Org1 Reg2', :email => 'reg2@example.com', :password => 'changeme', :password_confirmation => 'changeme'
+user4.confirm!
+user4.memberships.create! organization_id: org.id, expires_at: (Date.today + 1.year), membership_type: membership
+puts 'user4: ' << user4.name
+user4.add_role :regular

@@ -1,3 +1,3 @@
-class UserSerializer <; ActiveModel::Serializer
-  attributes :id, :email, :name, :organization_id
+class UserSerializer < ActiveModel::Serializer
+  attributes :id, :email, :name
 end
