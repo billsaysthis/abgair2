@@ -10,4 +10,9 @@ Abgair2::Application.routes.draw do
       resources :teams
     end
   end
+
+  root :to => "home#index"
+  
+  get '/dashboard' => 'templates#index'
+  get '/templates/:path.html' => 'templates#template', :constraints => { :path => /.+/  }
 end

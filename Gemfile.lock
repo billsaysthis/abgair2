@@ -210,6 +210,7 @@ DEPENDENCIES
   email_spec
   factory_girl_rails
   figaro
+  haml
   html2haml
   hub
   jbuilder (~> 1.2)

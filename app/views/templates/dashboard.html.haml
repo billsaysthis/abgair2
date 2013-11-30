@@ -1,0 +1,20 @@
+.ng-cloak(ng-init="init()")
+
+  .panel.panel-default.dashboard-list
+    .panel-heading 
+      %h4 Your Memberships
+    %ul.list-group(ng-show="lists == 0")
+      %li.list-group-item
+        You haven't created any memberships yet.      
+    %ul.list-group
+      %li.list-group-item(ng-repeat="membership in memberships")
+        %button.btn.btn-danger.btn-xs.pull-right(type="button" ng-click="deleteList(list, $index)")
+          %span.glyphicon.glyphicon-ban-circle        
+        %a(href="/memberships/{{membership.id}}") 
+          {{membership.organization.name}}
+
+  %form#new_membership(ng-submit="createMembership(membershipName)")
+    .input-group
+      %input#membershipDescription.form-control.input-lg(type="text" autofocus="autofocus" placeholder="Organization name" maxlength="255" ng-model="membershipName" data-non-blank)
+      %span.input-group-btn
+        %button.btn.btn-primary.btn-lg(type="submit") create membership
