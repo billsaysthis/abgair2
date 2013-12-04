@@ -15,7 +15,9 @@
 /vendor/bundle/
 /vendor/ruby/
 
+# private info files
 .ruby-version
+.env
 
 # minimal Rails specific artifacts
 db/*.sqlite3
